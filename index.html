@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abah Farm - Premium Dairy Products</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #1a5632;
+            --secondary-color: #f7f9f4;
+            --accent-color: #ffc857;
+            --text-color: #333333;
+            --light-gray: #f0f0f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e6b64c;
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Products Section */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+        }
+        
+        /* Farm Tour Section */
+        .tour-section {
+            background-color: var(--light-gray);
+        }
+        
+        .tour-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tour-form {
+            margin-top: 40px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            position: relative;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 240px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Cart Popup */
+        .cart-popup {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .cart-popup.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            margin-bottom: 30px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background-color: var(--light-gray);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .quantity-value {
+            margin: 0 10px;
+        }
+        
+        .cart-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        
+        .cart-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .cart-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .checkout-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .continue-btn {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+        }
+        
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: var(--primary-color);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cart-popup {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <span class="logo-icon">🐄</span>
+                    <span>Abah Farm</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#tour">Farm Tours</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+                <div class="cart-icon" style="color: white; cursor: pointer; font-size: 20px;">🛒</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Fresh Dairy Products from Our Farm to Your Table</h1>
+                <p>At Abah Farm, we're committed to producing premium quality dairy products through sustainable and ethical farming practices.</p>
+                <a href="#products" class="btn">Explore Our Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>A Family Tradition Since 1985</h3>
+                    <p>Abah Farm was established over three decades ago with a simple mission: to produce the finest dairy products while respecting our animals and the environment. What started as a small family operation has grown into a beloved local institution, but we've never lost sight of our core values.</p>
+                    <p>Our herd of happy, healthy cows roam freely on lush pastures and are fed a natural diet without artificial additives. This care and attention to detail is reflected in the exceptional quality and taste of our products.</p>
+                    <p>Today, the second generation of our family continues this tradition, blending time-honored methods with modern sustainable practices to bring you dairy as nature intended.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Abah Farm landscape">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="products-container">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/api/placeholder/400/300" alt="Fresh Milk">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Fresh Whole Milk</h3>
+                        <p class="product-price">$4.99 / gallon</p>
+                        <p class="product-description">Creamy, nutritious milk from grass-fed cows, pasteurized gently to preserve its natural flavor and nutrients.</p>
+                        <button class="btn add-to-cart" data-id="1" data-name="Fresh Whole Milk" data-price="4.99">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/api/placeholder/400/300" alt="Artisan Cheese">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Artisan Cheese</h3>
+                        <p class="product-price">$7.99 / 8oz</p>
+                        <p class="product-description">Hand-crafted cheese aged to perfection in our traditional cheese cellar, creating a rich and complex flavor profile.</p>
+                        <button class="btn add-to-cart" data-id="2" data-name="Artisan Cheese" data-price="7.99">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/api/placeholder/400/300" alt="Farm Butter">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Farm Butter</h3>
+                        <p class="product-price">$5.49 / 8oz</p>
+                        <p class="product-description">Churned from sweet cream, our butter has a velvety texture and rich flavor that makes everything taste better.</p>
+                        <button class="btn add-to-cart" data-id="3" data-name="Farm Butter" data-price="5.49">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/api/placeholder/400/300" alt="Greek Yogurt">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Greek Yogurt</h3>
+                        <p class="product-price">$3.99 / 16oz</p>
+                        <p class="product-description">Thick, creamy yogurt made the traditional way, strained to perfection for a protein-rich, probiotic treat.</p>
+                        <button class="btn add-to-cart" data-id="4" data-name="Greek Yogurt" data-price="3.99">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/api/placeholder/400/300" alt="Chocolate Milk">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Chocolate Milk</h3>
+                        <p class="product-price">$5.49 / gallon</p>
+                        <p class="product-description">Our whole milk blended with organic cocoa and a touch of honey, creating a delicious treat for all ages.</p>
+                        <button class="btn add-to-cart" data-id="5" data-name="Chocolate Milk" data-price="5.49">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="/api/placeholder/400/300" alt="Fresh Cream">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Fresh Cream</h3>
+                        <p class="product-price">$4.29 / pint</p>
+                        <p class="product-description">Luxuriously thick and velvety cream, perfect for whipping, cooking, or adding richness to your coffee.</p>
+                        <button class="btn add-to-cart" data-id="6" data-name="Fresh Cream" data-price="4.29">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farm Tour Section -->
+    <section class="section tour-section" id="tour">
+        <div class="container">
+            <h2 class="section-title">Visit Our Farm</h2>
+            <div class="tour-content">
+                <p>Experience the Abah Farm difference for yourself! We offer guided tours where you can meet our cows, learn about sustainable dairy farming, and sample our fresh products directly from the source.</p>
+                <p>Tours are available on weekends and by appointment during the week. Perfect for families, school groups, and anyone interested in seeing where their food comes from.</p>
+                
+                <div class="tour-form">
+                    <h3>Book a Farm Tour</h3>
+                    <form id="tour-booking-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="group-size">Group Size</label>
+                            <select id="group-size" class="form-control" required>
+                                <option value="">Select Group Size</option>
+                                <option value="1-5">1-5 people</option>
+                                <option value="6-10">6-10 people</option>
+                                <option value="11-20">11-20 people</option>
+                                <option value="20+">More than 20 people</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Special Requests</label>
+                            <textarea id="message" class="form-control" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Book Tour</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>123 Rural Road, Farmville, CA 90210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@abahfarm.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Farm Store Hours</h4>
+                            <p>Monday - Friday: 9am - 6pm</p>
+                            <p>Saturday: 9am - 4pm</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">📷</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Abah Farm</h3>
+                    <p>Premium dairy products from our family farm to your table. Committed to sustainable and ethical farming since 1985.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#tour">Farm Tours</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products">Fresh Milk</a></li>
+                        <li><a href="#products">Artisan Cheese</a></li>
+                        <li><a href="#products">Farm Butter</a></li>
+                        <li><a href="#products">Greek Yogurt</a></li>
+                        <li><a href="#products">Seasonal Specials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates, promotions, and seasonal recipes:</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email address" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Abah Farm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Popup -->
+    <div class="cart-popup">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            Total: $0.00
+        </div>
+        <div class="cart-buttons">
+            <button class="cart-btn continue-btn">Continue Shopping</button>
+            <button class="cart-btn checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            // Shopping cart functionality
+            const cartIcon = document.querySelector('.cart-icon');
+            const cartPopup = document.querySelector('.cart-popup');
+            const closeCart = document.querySelector('.close-cart');
+            const overlay = document.querySelector('.overlay');
+            const continueBtn = document.querySelector('.continue-btn');
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const cartTotal = document.querySelector('.cart-total');
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            
+            // Cart state
+            let cart = [];
+            
+            // Show cart
+            cartIcon.addEventListener('click', function() {
+                cartPopup.classList.add('active');
+                overlay.classList.add('active');
+            });
+            
+            // Hide cart
+            closeCart.addEventListener('click', closeCartFunction);
+            continueBtn.addEventListener('click', closeCartFunction);
+            overlay.addEventListener('click', closeCartFunction);
+            
+            function closeCartFunction() {
+                cartPopup.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+            
+            // Add to cart functionality
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = parseFloat(this.dataset.price);
+                    
+                    // Check if product is already in cart
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id: id,
+                            name: name,
+                            price: price,
+                            quantity: 1
+                        });
+                    }
+                    
+                    // Show notification
+                    showNotification(`${name} added to cart!`);
+                    
+                    // Update cart display
+                    updateCartDisplay();
+                });
+            });
+            
+            // Update cart display
+            function updateCartDisplay() {
+                cartItemsContainer.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+                    cartTotal.textContent = 'Total: $0.00';
+                    return;
+                }
+                
+                let total = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <div class="cart-item-img">
+                            <img src="/api/placeholder/80/80" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                <span class="quantity-value">${item.quantity}</span>
+                                <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                                <button class="remove-item" data-id="${item.id}" style="margin-left: 10px; color: red;">🗑️</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    cartItemsContainer.appendChild(cartItemElement);
+                });
+                
+                cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+                
+                // Add event listeners to quantity buttons
+                document.querySelectorAll('.quantity-btn.plus').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const item = cart.find(item => item.id === id);
+                        item.quantity += 1;
+                        updateCartDisplay();
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.minus').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        const item = cart.find(item => item.id === id);
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                        } else {
+                            cart = cart.filter(cartItem => cartItem.id !== id);
+                        }
+                        updateCartDisplay();
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        cart = cart.filter(item => item.id !== id);
+                        updateCartDisplay();
+                    });
+                });
+            }
+            
+            // Show notification
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.textContent = message;
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.right = '20px';
+                notification.style.backgroundColor = 'var(--primary-color)';
+                notification.style.color = 'white';
+                notification.style.padding = '10px 20px';
+                notification.style.borderRadius = '5px';
+                notification.style.boxShadow = '0 3px 10px rgba(0, 0, 0, 0.2)';
+                notification.style.zIndex = '1000';
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(20px)';
+                notification.style.transition = 'opacity 0.3s, transform 0.3s';
+                
+                document.body.appendChild(notification);
+                
+                // Show notification
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                    notification.style.transform = 'translateY(0)';
+                }, 10);
+                
+                // Remove notification after 3 seconds
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+            
+            // Checkout button
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    showNotification('Your cart is empty!');
+                    return;
+                }
+                
+                alert('Thank you for your order! In a real website, you would be redirected to a payment gateway.');
+                cart = [];
+                updateCartDisplay();
+                closeCartFunction();
+            });
+            
+            // Form submissions
+            const tourForm = document.getElementById('tour-booking-form');
+            const contactForm = document.getElementById('contact-form');
+            const newsletterForm = document.querySelector('.newsletter-form');
+            
+            if (tourForm) {
+                tourForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // In a real website, this would send data to the server
+                    showNotification('Tour booking request submitted! We will contact you soon.');
+                    tourForm.reset();
+                });
+            }
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // In a real website, this would send data to the server
+                    showNotification('Message sent! We will get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // In a real website, this would subscribe to a newsletter
+                    showNotification('Thank you for subscribing to our newsletter!');
+                    newsletterForm.reset();
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70, // Adjust for header height
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
